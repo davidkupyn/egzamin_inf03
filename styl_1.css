@@ -16,20 +16,20 @@ header h1 {
     margin: 0;
 }
 
-.panels {
+.blocks {
     display: flex;
 }
 
-.panel_left {
+.left-block {
     width: 60%;
 }
 
-.panel_right {
+.right-block {
     font-size: 150%;
     padding: 70px;
 }
 
-.panel_bottom {
+.bottom-section {
     background-color: #d0b6a8;
     text-align: center;
     padding: 30px;
@@ -41,9 +41,6 @@ footer {
     height: 60px;
 }
 
-footer p {
-    margin: 0;
-}
 
 .image {
     height: 350px;
@@ -54,6 +51,7 @@ footer p {
     padding: 5px;
     background-color: #2f180c;
     color: khaki;
+    text-transform: uppercase;
 }
 
 .form-block label {
@@ -63,4 +61,8 @@ footer p {
 .checkbox {
     display: flex;
     justify-content: center;
+}
+
+footer p {
+    margin: 0;
 }
