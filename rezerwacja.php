@@ -6,7 +6,7 @@
             return $db->connection_error;
         }
 
-        $sql = "INSERT INTO rezerwacje (nr_stolika, data_rez, liczba_osob, telefon) VALUES (NULL, {$array[0]}, {$array[1]}, {$array[2]})";
+        $sql = "INSERT INTO rezerwacje (nr_stolika, data_rez, liczba_osob, telefon) VALUES (NULL, '{$array[0]}', {$array[1]}, {$array[2]})";
         $db->query($sql);
         $db->close();
     }
