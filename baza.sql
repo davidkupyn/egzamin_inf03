@@ -7,7 +7,7 @@ CREATE TABLE restaurant (
     title VARCHAR(50) NOT NULL,
     city VARCHAR(30) NOT NULL,
     city_address VARCHAR(100) NOT NULL,
-    zip_code VARCHAR(6) NOT NULL,
+    zip_code VARCHAR(10) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -19,8 +19,8 @@ CREATE TABLE roles (
 
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
-    full_name VARCHAR(50) NOT NULL,
-    surname VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
     personal_id VARCHAR(11) NOT NULL,
     PRIMARY KEY (id),
 );
@@ -53,6 +53,7 @@ CREATE TABLE meals (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(50) NOT NULL,
     meal_type_id INT NOT NULL,
+    base_price DECIMAL(5,2) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (meal_type_id) REFERENCES meal_type(id)
 );
