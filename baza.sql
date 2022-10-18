@@ -33,14 +33,21 @@ CREATE TABLE restaurant_employee (
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
+CREATE TABLE reservation_table (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(50) NOT NULL,
+    restaurant_id INT NOT NULL,
+    number_of_seats INT NOT NULL,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
+)
 CREATE TABLE reservation (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     phone VARCHAR(12) NOT NULL,
     surname VARCHAR(50) NOT NULL,
-    restaurant_id INT NOT NULL,
+    reservation_table_id INT NOT NULL,
     reservation_date DATETIME NOT NULL,
     guests INT NOT NULL,
-    FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
+    FOREIGN KEY (reservation_table_id) REFERENCES reservation_table(id)
 );
 CREATE TABLE meal_type (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -55,10 +62,3 @@ CREATE TABLE meals (
     FOREIGN KEY (meal_type_id) REFERENCES meal_type(id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
 );
-CREATE TABLE reservation_table (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(50) NOT NULL,
-    restaurant_id INT NOT NULL,
-    number_of_guests INT NOT NULL,
-    FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
-)
