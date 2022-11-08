@@ -1,0 +1,17 @@
+select id, nazwa, wystepowanie from Ryby;
+where styl_zycia = "1";
+
+__________________________________________________________
+
+select Ryby_id, wymiar_ochronny from Okres_ochronny;
+where wymiar_ochronny < 30;
+
+__________________________________________________________
+
+select nazwa, wystepowanie, wojewodztwo from ryby;
+join lowisko on ryby.id = lowisko.ryby_id;
+where rodzaj = 3;
+
+__________________________________________________________
+
+alter table ryby add dobowy_limit tinyint UNSIGNED not null default 0;

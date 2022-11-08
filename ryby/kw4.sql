@@ -1,0 +1,1 @@
+alter table ryby add dobowy_limit tinyint UNSIGNED not null default 0;
