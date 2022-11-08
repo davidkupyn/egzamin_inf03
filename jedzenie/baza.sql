@@ -62,3 +62,42 @@ CREATE TABLE meals (
     FOREIGN KEY (meal_type_id) REFERENCES meal_type(id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
 );
+
+
+-- wyświetlić wszystkie i rezerwacje jeśli istnieją
+select * from reservation_table as rt
+left join reservation as r on rt.id = r.reservation_table_id;
+
+-- wyświetlić wszystkie stoliki, które nie mają rezerwacji
+select * from reservation_table as rt
+left join reservation as r on rt.id = r.reservation_table_id
+where r.reservation_table_id is null;
+
+-- wyświetlić stoliki, które mają rezerwację w danej restauracji
+select * from reservation_table as rt
+left join reservation as r on rt.id = r.reservation_table_id
+where rt.restaurant_id = 1;
+
+-- wyświetlić wszystkich pracowników oraz ich dane dot. stanowiska i zatrudnienia w restauracjach
+select * from employee as e
+left join restaurant_employee as re on e.id = re.employee_id
+left join roles as r on re.role_id = r.id
+left join restaurant as res on re.restaurant_id = res.id;
+
+-- wyświetlić pracowników nigdzie nie zatrudnionych
+select * from employee as e
+left join restaurant_employee as re on e.id = re.employee_id
+where re.employee_id is null;
+-- wyświetlić pracowników, którzy pracują w conajmniej 2 restauracjach
+select * from employee as e
+left join restaurant_employee as re on e.id = re.employee_id
+group by e.id
+having count(re.restaurant_id) > 1;
+-- cross join restauracji i pracowników
+select * from restaurant as res
+cross join employee as e;
+
+
+
+
+
