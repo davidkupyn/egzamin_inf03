@@ -14,7 +14,7 @@
     <section>
         <div class="left">
             <div class="first">
-                <h3>Ryby zamieszkujące nasze rzeki</h3>
+                <h3>Ryby zamieszkujące rzeki</h3>
                 <ol>
                     <?php
                         include_once 'skrypt1.php';
@@ -45,7 +45,7 @@
         </div>
     </section>
     <footer>
-        <p>Stronę wykonał: 1234</p>
+        <p>Stronę wykonał: 05080811696</p>
     </footer>
 </body>
 </html>
