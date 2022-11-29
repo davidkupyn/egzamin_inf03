@@ -7,8 +7,7 @@
         return $db;
     }
     
-    function fill_list() {
-        $db = connect();
+    function fill_list($db) {
 
         $result = $db->query("SELECT nazwa, akwen, wojewodztwo FROM Ryby JOIN Lowisko ON Ryby.id = Lowisko.ryby_id WHERE rodzaj = 3;");
 
@@ -19,11 +18,9 @@
         while ($row = mysqli_fetch_array($result)) {
             echo "<li>{$row['nazwa']} pływa w rzece {$row['akwen']}, {$row['wojewodztwo']}</li>";
         }
-        $db->close();
     }
 
-    function fill_table() {
-        $db = connect();
+    function fill_table($db) {
 
         $result = $db->query("SELECT id, nazwa, wystepowanie FROM Ryby WHERE styl_zycia = 1");
 
@@ -34,6 +31,9 @@
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr><td>{$row['id']}</td><td>{$row['nazwa']}</td><td>{$row['wystepowanie']}</td></tr>";
         }
+    }
+
+    function disconnect($db) {
         $db->close();
     }
 ?>

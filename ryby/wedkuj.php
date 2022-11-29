@@ -18,7 +18,8 @@
                 <ol>
                     <?php
                         include_once 'skrypt1.php';
-                        fill_list();
+                        $db = connect();
+                        fill_list($db);
                     ?>
                 </ol>
             </div>
@@ -31,8 +32,8 @@
                         <th>Występowanie</th>
                     </tr>
                     <?php
-                        include_once 'skrypt1.php';
-                        fill_table();
+                        fill_table($db);
+                        disconnect($db);
                     ?>
                 </table>
             </div>
