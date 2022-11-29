@@ -71,7 +71,6 @@ table th {
     border: 1px solid #52b4bd;
 }
 
-table tr:hover,
-table th:hover {
+table tr:hover {
     background-color: #4fb3bf;
 }
